@@ -139,7 +139,7 @@ export default ({ backup }: Props) => {
           Your server will be stopped. You will not be able to control the power state, access the file manager, or
           create additional backups until completed.
         </p>
-        <p css={tw`mt-4 -mb-2 bg-gray-700 p-3 rounded`}>
+        <p css={tw`mt-4 -mb-2 bg-[#070707] p-3 rounded`}>
           <label htmlFor={"restore_truncate"} css={tw`text-base flex items-center cursor-pointer`}>
             <Input
               type={"checkbox"}

@@ -84,7 +84,7 @@ export default ({ children, ...props }: Props) => {
             transition={{ type: "spring", damping: 20, stiffness: 300, duration: 0.075 }}
             {...getFloatingProps({
               ref: floating,
-              className: "bg-gray-900 text-sm text-gray-200 px-3 py-2 rounded pointer-events-none max-w-[24rem]",
+              className: "bg-[#e056ad] text-sm text-gray-200 px-3 py-2 rounded pointer-events-none max-w-[24rem]",
               style: {
                 position: strategy,
                 top: `${y || 0}px`,
@@ -99,7 +99,7 @@ export default ({ children, ...props }: Props) => {
                 style={{
                   transform: `translate(${Math.round(ax || 0)}px, ${Math.round(ay || 0)}px) rotate(45deg)`,
                 }}
-                className={classNames("absolute bg-gray-900 w-3 h-3", side)}
+                className={classNames("absolute bg-[#e056ad] w-3 h-3", side)}
               />
             )}
           </motion.div>

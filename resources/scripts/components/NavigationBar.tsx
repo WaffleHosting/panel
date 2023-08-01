@@ -21,7 +21,7 @@ const RightNavigation = styled.div`
 
     &:active,
     &:hover {
-      ${tw`text-neutral-100 bg-black`};
+      ${tw`text-neutral-100 opacity-75`};
     }
 
     &:active,

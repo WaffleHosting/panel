@@ -12,7 +12,7 @@ const ToggleContainer = styled.div`
     ${tw`hidden`};
 
     &:checked + label {
-      ${tw`bg-primary-500 border-primary-700 shadow-none`};
+      ${tw`border-[#1f1f1f] bg-green-500 shadow-none`};
     }
 
     &:checked + label:before {
@@ -21,7 +21,7 @@ const ToggleContainer = styled.div`
   }
 
   & > label {
-    ${tw`mb-0 block overflow-hidden cursor-pointer bg-neutral-400 border border-neutral-700 rounded-full h-6 shadow-inner`};
+    ${tw`mb-0 block overflow-hidden cursor-pointer bg-red-500 border border-[#1f1f1f] rounded-full h-6 shadow-inner`};
     transition: all 75ms linear;
 
     &::before {

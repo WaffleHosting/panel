@@ -30,7 +30,7 @@ export default () => {
           <Can action={"file.sftp"}>
             <TitledGreyBox title={"การเชื่อมต่อ SFTP"} css={tw`mb-6 md:mb-10`}>
               <div>
-                <Label>ที่อยู่ Server</Label>
+                <Label>ที่อยู่เซิร์ฟเวอร์</Label>
                 <CopyOnClick text={`sftp://${ip(sftp.ip)}:${sftp.port}`}>
                   <Input type={"text"} value={`sftp://${ip(sftp.ip)}:${sftp.port}`} readOnly />
                 </CopyOnClick>
@@ -59,13 +59,13 @@ export default () => {
           </Can>
           <TitledGreyBox title={"ข้อมูลเพิ่มเติม"} css={tw`mb-6 md:mb-10`}>
             <div css={tw`flex items-center justify-between text-sm`}>
-              <p>Node ที่ Server นี้อยู่</p>
-              <code css={tw`font-mono bg-neutral-900 rounded py-1 px-2`}>{node}</code>
+              <p>โหนด</p>
+              <code css={tw`font-mono bg-[#090909] rounded py-1 px-2`}>{node}</code>
             </div>
             <CopyOnClick text={uuid}>
               <div css={tw`flex items-center justify-between mt-2 text-sm`}>
-                <p>Server ID</p>
-                <code css={tw`font-mono bg-neutral-900 rounded py-1 px-2`}>{uuid}</code>
+                <p>ไอดีเซิร์ฟเวอร์</p>
+                <code css={tw`font-mono bg-[#090909] rounded py-1 px-2`}>{uuid}</code>
               </div>
             </CopyOnClick>
           </TitledGreyBox>

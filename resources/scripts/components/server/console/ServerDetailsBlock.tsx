@@ -90,7 +90,7 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
 
   return (
     <div className={classNames("grid grid-cols-6 gap-2 md:gap-4", className)}>
-      <StatBlock icon={faWifi} title={"IP Address"} copyOnClick={allocation}>
+      <StatBlock icon={faWifi} title={"ที่อยู่ไอพี"} copyOnClick={allocation}>
         {allocation}
       </StatBlock>
       <StatBlock
@@ -106,7 +106,7 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
           capitalize(status)
         )}
       </StatBlock>
-      <StatBlock icon={faMicrochip} title={"การใช้ CPU"} color={getBackgroundColor(stats.cpu, limits.cpu)}>
+      <StatBlock icon={faMicrochip} title={"การใช้งาน CPU"} color={getBackgroundColor(stats.cpu, limits.cpu)}>
         {status === "offline" ? (
           <span className={"text-gray-400"}>Offline</span>
         ) : (
@@ -115,7 +115,7 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
       </StatBlock>
       <StatBlock
         icon={faMemory}
-        title={"การใช้ Ram"}
+        title={"การใช้งาน Ram"}
         color={getBackgroundColor(stats.memory / 1024, limits.memory * 1024)}
       >
         {status === "offline" ? (
@@ -126,7 +126,7 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
       </StatBlock>
       <StatBlock
         icon={faHdd}
-        title={"พื้นที่จัดเก็บ"}
+        title={"พื้นที่จัดเก็บข้อมูล"}
         color={getBackgroundColor(stats.disk / 1024, limits.disk * 1024)}
       >
         <Limit limit={textLimits.disk}>{bytesToString(stats.disk)}</Limit>

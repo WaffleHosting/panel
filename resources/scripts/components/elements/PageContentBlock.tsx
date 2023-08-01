@@ -26,12 +26,26 @@ const PageContentBlock: React.FC<PageContentBlockProps> = ({ title, showFlashKey
         </ContentContainer>
         <ContentContainer css={tw`mb-4`}>
           <p css={tw`text-center text-neutral-500 text-xs mt-4 transition hover:opacity-75`}>
-            &copy; 2015 - {new Date().getFullYear()}&nbsp;
-            <a rel={"noopener nofollow noreferrer"} href={"https://pterodactyl.io"} target={"_blank"}>
-              <span css={tw`no-underline transition text-yellow-500 hover:text-yellow-300`}>WaffleStudio panel</span>{" "}
+            &copy; {new Date().getFullYear()}&nbsp;
+            <span>
+              <a
+                rel={"noopener nofollow noreferrer"}
+                href={"https://wafflestudio.xyz"}
+                target={"_blank"}
+                css={tw`underline transition text-yellow-500 hover:text-yellow-300`}
+              >
+                WaffleStudio panel
+              </a>{" "}
               built on.{" "}
-              <span css={tw`underline transition text-cyan-500 hover:text-cyan-300`}>Pterodactyl Software</span>
-            </a>
+              <a
+                rel={"noopener nofollow noreferrer"}
+                href={"https://pterodactyl.io"}
+                target={"_blank"}
+                css={tw`underline transition text-cyan-500 hover:text-cyan-300`}
+              >
+                Pterodactyl Software
+              </a>
+            </span>
           </p>
         </ContentContainer>
       </>
