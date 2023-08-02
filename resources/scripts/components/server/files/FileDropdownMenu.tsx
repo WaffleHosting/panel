@@ -132,12 +132,12 @@ const FileDropdownMenu = ({ file }: { file: FileObject }) => {
       <Dialog.Confirm
         open={showConfirmation}
         onClose={() => setShowConfirmation(false)}
-        title={`Delete ${file.isFile ? "File" : "Directory"}`}
-        confirm={"Delete"}
+        title={`ลบ ${file.isFile ? "ไฟล์" : "โฟเดอร์"}`}
+        confirm={"ตกลง"}
         onConfirmed={doDeletion}
       >
-        You will not be able to recover the contents of&nbsp;
-        <span className={"font-semibold text-gray-50"}>{file.name}</span> once deleted.
+        คุณจะไม่สามารถกู้คืนเนื้อหาของ&nbsp;
+        <span className={"font-semibold text-gray-50"}>{file.name}</span> หลังจากที่ถูกลบแล้ว
       </Dialog.Confirm>
       <DropdownMenu
         ref={onClickRef}
@@ -167,27 +167,27 @@ const FileDropdownMenu = ({ file }: { file: FileObject }) => {
         )}
       >
         <Can action={"file.update"}>
-          <Row onClick={() => setModal("rename")} icon={faPencilAlt} title={"Rename"} />
-          <Row onClick={() => setModal("move")} icon={faLevelUpAlt} title={"Move"} />
-          <Row onClick={() => setModal("chmod")} icon={faFileCode} title={"Permissions"} />
+          <Row onClick={() => setModal("rename")} icon={faPencilAlt} title={"เปลื่ยนชื่อไฟล์"} />
+          <Row onClick={() => setModal("move")} icon={faLevelUpAlt} title={"ย้าย"} />
+          <Row onClick={() => setModal("chmod")} icon={faFileCode} title={"สิทธิไฟล์ (chmod)"} />
         </Can>
         {file.isFile && (
           <Can action={"file.create"}>
-            <Row onClick={doCopy} icon={faCopy} title={"Copy"} />
+            <Row onClick={doCopy} icon={faCopy} title={"คัคลอกไฟล์"} />
           </Can>
         )}
         {file.isArchiveType() ? (
           <Can action={"file.create"}>
-            <Row onClick={doUnarchive} icon={faBoxOpen} title={"Unarchive"} />
+            <Row onClick={doUnarchive} icon={faBoxOpen} title={"แตกไฟล์"} />
           </Can>
         ) : (
           <Can action={"file.archive"}>
-            <Row onClick={doArchive} icon={faFileArchive} title={"Archive"} />
+            <Row onClick={doArchive} icon={faFileArchive} title={"บีบอัดไฟล์"} />
           </Can>
         )}
-        {file.isFile && <Row onClick={doDownload} icon={faFileDownload} title={"Download"} />}
+        {file.isFile && <Row onClick={doDownload} icon={faFileDownload} title={"ดาว์ดาวน์โหลดไฟล์"} />}
         <Can action={"file.delete"}>
-          <Row onClick={() => setShowConfirmation(true)} icon={faTrashAlt} title={"Delete"} $danger />
+          <Row onClick={() => setShowConfirmation(true)} icon={faTrashAlt} title={"ลบไฟล์"} $danger />
         </Can>
       </DropdownMenu>
     </>

@@ -46,13 +46,13 @@ export default {
   account: [
     {
       path: "/",
-      name: "Account",
+      name: "บัญชี",
       component: AccountOverviewContainer,
       exact: true,
     },
     {
       path: "/api",
-      name: "API Credentials",
+      name: "API Keys",
       component: AccountApiContainer,
     },
     {
@@ -62,7 +62,7 @@ export default {
     },
     {
       path: "/activity",
-      name: "Activity",
+      name: "กิจกรรม",
       component: ActivityLogContainer,
     },
   ],

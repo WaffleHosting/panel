@@ -123,21 +123,20 @@ export default ({ backup }: Props) => {
       <Dialog.Confirm
         open={modal === "unlock"}
         onClose={() => setModal("")}
-        title={`Unlock "${backup.name}"`}
+        title={`ยกเลิกการล๊อก "${backup.name}"`}
         onConfirmed={onLockToggle}
       >
-        This backup will no longer be protected from automated or accidental deletions.
+        การสำรองข้อมูลนี้จะไม่ได้รับการป้องกันจากการลบอัตโนมัติหรือการลบโดยบังคับใช้
       </Dialog.Confirm>
       <Dialog.Confirm
         open={modal === "restore"}
         onClose={() => setModal("")}
-        confirm={"Restore"}
-        title={`Restore "${backup.name}"`}
+        confirm={"ตกลง"}
+        title={`คืนค่า "${backup.name}"`}
         onConfirmed={() => doRestorationAction()}
       >
         <p>
-          Your server will be stopped. You will not be able to control the power state, access the file manager, or
-          create additional backups until completed.
+          เซิร์ฟเวอร์ของคุณจะถูกหยุดการทำงาน คุณจะไม่สามารถควบคุมสถานะเครื่อง, เข้าถึงตัวจัดการไฟล์, หรือสร้างการสำรองข้อมูลเพิ่มเติมได้จนกว่าการดำเนินการจะเสร็จสิ้น
         </p>
         <p css={tw`mt-4 -mb-2 bg-[#070707] p-3 rounded`}>
           <label htmlFor={"restore_truncate"} css={tw`text-base flex items-center cursor-pointer`}>
@@ -149,18 +148,18 @@ export default ({ backup }: Props) => {
               checked={truncate}
               onChange={() => setTruncate((s) => !s)}
             />
-            Delete all files before restoring backup.
+            ลบไฟล์ทั้งหมดก่อนที่จะกู้คืนการสำรองข้อมูล
           </label>
         </p>
       </Dialog.Confirm>
       <Dialog.Confirm
-        title={`Delete "${backup.name}"`}
-        confirm={"Continue"}
+        title={`ลบ "${backup.name}"`}
+        confirm={"ตกลง"}
         open={modal === "delete"}
         onClose={() => setModal("")}
         onConfirmed={doDeletion}
       >
-        This is a permanent operation. The backup cannot be recovered once deleted.
+        นี่เป็นการดำเนินการที่ถาวร การสำรองข้อมูลที่ถูกลบแล้วจะไม่สามารถกู้คืนได้
       </Dialog.Confirm>
       <SpinnerOverlay visible={loading} fixed />
       {backup.isSuccessful ? (
@@ -175,25 +174,25 @@ export default ({ backup }: Props) => {
             <Can action={"backup.download"}>
               <DropdownButtonRow onClick={doDownload}>
                 <FontAwesomeIcon fixedWidth icon={faCloudDownloadAlt} css={tw`text-xs`} />
-                <span css={tw`ml-2`}>Download</span>
+                <span css={tw`ml-2`}>ดาว์นโหลด</span>
               </DropdownButtonRow>
             </Can>
             <Can action={"backup.restore"}>
               <DropdownButtonRow onClick={() => setModal("restore")}>
                 <FontAwesomeIcon fixedWidth icon={faBoxOpen} css={tw`text-xs`} />
-                <span css={tw`ml-2`}>Restore</span>
+                <span css={tw`ml-2`}>คืนค่า</span>
               </DropdownButtonRow>
             </Can>
             <Can action={"backup.delete"}>
               <>
                 <DropdownButtonRow onClick={onLockToggle}>
                   <FontAwesomeIcon fixedWidth icon={backup.isLocked ? faUnlock : faLock} css={tw`text-xs mr-2`} />
-                  {backup.isLocked ? "Unlock" : "Lock"}
+                  {backup.isLocked ? "ไม่ล๊อก" : "ล๊อก"}
                 </DropdownButtonRow>
                 {!backup.isLocked && (
                   <DropdownButtonRow danger onClick={() => setModal("delete")}>
                     <FontAwesomeIcon fixedWidth icon={faTrashAlt} css={tw`text-xs`} />
-                    <span css={tw`ml-2`}>Delete</span>
+                    <span css={tw`ml-2`}>ลบ</span>
                   </DropdownButtonRow>
                 )}
               </>

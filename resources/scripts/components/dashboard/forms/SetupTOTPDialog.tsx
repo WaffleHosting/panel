@@ -74,8 +74,7 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
         </p>
       </CopyOnClick>
       <p id={"totp-code-description"} className={"mt-6"}>
-        Scan the QR code above using the two-step authentication app of your choice. Then, enter the 6-digit code
-        generated into the field below.
+        สแกน QR Code ด้านบนโดยใช้แอพ Google Authenticator และใส่รหัส 6 หลักในช่องด้านล่าง
       </p>
       <Input.Text
         aria-labelledby={"totp-code-description"}
@@ -90,7 +89,7 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
         pattern={"\\d{6}"}
       />
       <label htmlFor={"totp-password"} className={"block mt-3"}>
-        Account Password
+        รหัสผ่านของบัญชี
       </label>
       <Input.Text
         variant={Input.Text.Variants.Loose}
@@ -100,7 +99,7 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
         onChange={(e) => setPassword(e.currentTarget.value)}
       />
       <Dialog.Footer>
-        <Button.Text onClick={close}>Cancel</Button.Text>
+        <Button.Text onClick={close}>ยกเลิก</Button.Text>
         <Tooltip
           disabled={password.length > 0 && value.length === 6}
           content={
@@ -109,7 +108,7 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
           delay={100}
         >
           <Button disabled={!token || value.length !== 6 || !password.length} type={"submit"} form={"enable-totp-form"}>
-            Enable
+            เปิดใช้งานยืนยัน 2 ชั้น
           </Button>
         </Tooltip>
       </Dialog.Footer>
@@ -118,7 +117,7 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
 };
 
 export default asDialog({
-  title: "Enable Two-Step Verification",
+  title: "เปิดการยืนยันตัว 2 ชั้น",
   description:
-    "Help protect your account from unauthorized access. You'll be prompted for a verification code each time you sign in.",
+    "ช่วยปกป้องบัญชีของคุณจากการเข้าถึงที่ไม่ได้รับอนุญาต คุณจะต้องใส่รหัสยืนยันตัวตนทุกครั้งที่เข้าสู่ระบบ",
 })(ConfigureTwoFactorForm);

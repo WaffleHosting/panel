@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'search' => 'Search for servers...',
-    'no_matches' => 'There were no servers found matching the search criteria provided.',
+    'search' => 'กำลังหาเซิร์ฟเวอร์',
+    'no_matches' => 'ไม่พบเซิร์ฟเวอร์ที่ตรงกับเกณฑ์การค้นหาที่ให้ไว้',
     'cpu_title' => 'CPU',
-    'memory_title' => 'Memory',
+    'memory_title' => 'Ram',
 ];

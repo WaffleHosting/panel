@@ -51,8 +51,8 @@ export default () => {
             ) : (
               <p css={tw`text-center text-sm text-neutral-300`}>
                 {databaseLimit > 0
-                  ? "It looks like you have no databases."
-                  : "Databases cannot be created for this server."}
+                  ? "ดูเหมือนว่าคุณไม่มีฐานข้อมูล"
+                  : "ไม่สามารถสร้างฐานข้อมูลสำหรับเซิร์ฟเวอร์นี้ได้"}
               </p>
             )}
             <Can action={"database.create"}>

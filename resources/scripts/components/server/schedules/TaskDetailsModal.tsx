@@ -119,25 +119,25 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
       {({ isSubmitting, values }) => (
         <Form css={tw`m-0`}>
           <FlashMessageRender byKey={"schedule:task"} css={tw`mb-4`} />
-          <h2 css={tw`text-2xl mb-6`}>{task ? "Edit Task" : "Create Task"}</h2>
+          <h2 css={tw`text-2xl mb-6`}>{task ? "แก้ไขงาน" : "สร้างงานใหม่"}</h2>
           <div css={tw`flex`}>
             <div css={tw`mr-2 w-1/3`}>
-              <Label>Action</Label>
+              <Label>การกระทำ</Label>
               <ActionListener />
               <FormikFieldWrapper name={"action"}>
                 <FormikField as={Select} name={"action"}>
-                  <option value={"command"}>Send command</option>
-                  <option value={"power"}>Send power action</option>
-                  <option value={"backup"}>Create backup</option>
+                  <option value={"command"}>ส่งคำสั่ง</option>
+                  <option value={"power"}>เริ่ม,รีสตาร์ท,หยุดเซิร์ฟเวอร์</option>
+                  <option value={"backup"}>สร้างการสำรองข้อมูล</option>
                 </FormikField>
               </FormikFieldWrapper>
             </div>
             <div css={tw`flex-1 ml-6`}>
               <Field
                 name={"timeOffset"}
-                label={"Time offset (in seconds)"}
+                label={"ช่วงเวลา (ในวินาที)"}
                 description={
-                  "The amount of time to wait after the previous task executes before running this one. If this is the first task on a schedule this will not be applied."
+                  "ค่าเวลาที่ต้องรอหลังจากที่งานก่อนหน้านี้ได้ทำการดำเนินการเสร็จสิ้นก่อนที่จะเริ่มต้นทำงานงานนี้ หากเป็นงานแรกในตารางนั้น ค่านี้จะไม่ถูกใช้งาน"
                 }
               />
             </div>
@@ -145,7 +145,7 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
           <div css={tw`mt-6`}>
             {values.action === "command" ? (
               <div>
-                <Label>Payload</Label>
+                <Label>ส่วนข้อมูลที่ถูกส่งอยู่ภายใน</Label>
                 <FormikFieldWrapper name={"payload"}>
                   <FormikField as={Textarea} name={"payload"} rows={6} />
                 </FormikFieldWrapper>
@@ -155,10 +155,10 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                 <Label>Payload</Label>
                 <FormikFieldWrapper name={"payload"}>
                   <FormikField as={Select} name={"payload"}>
-                    <option value={"start"}>Start the server</option>
-                    <option value={"restart"}>Restart the server</option>
-                    <option value={"stop"}>Stop the server</option>
-                    <option value={"kill"}>Terminate the server</option>
+                    <option value={"start"}>เริ่มเซิร์ฟเวอร์</option>
+                    <option value={"restart"}>รีสตาร์ทเซิร์ฟเวอร์</option>
+                    <option value={"stop"}>หยุดเซิร์ฟเวอร์</option>
+                    <option value={"kill"}>หยุดเซิร์ฟเวอร์แบบกระทันหัน</option>
                   </FormikField>
                 </FormikFieldWrapper>
               </div>
@@ -168,7 +168,7 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                 <FormikFieldWrapper
                   name={"payload"}
                   description={
-                    "Optional. Include the files and folders to be excluded in this backup. By default, the contents of your .pteroignore file will be used. If you have reached your backup limit, the oldest backup will be rotated."
+                    "เลือกทำเครื่องหมายไว้หากต้องการระบุไฟล์และโฟลเดอร์ที่ต้องการยกเว้นในการสำรองข้อมูลนี้ โดยปกติแล้ว ระบบจะใช้เนื้อหาของไฟล์ .pteroignore ในรากของเซิร์ฟเวอร์เป็นค่าเริ่มต้น หากคุณได้ถึงขีดจำกัดของการสำรองข้อมูล การสำรองข้อมูลที่เก่าที่สุดจะถูกสลับออกไป"
                   }
                 >
                   <FormikField as={Textarea} name={"payload"} rows={6} />
@@ -179,13 +179,13 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
           <div css={tw`mt-6 bg-[#070707] border border-neutral-800 shadow-inner p-4 rounded`}>
             <FormikSwitch
               name={"continueOnFailure"}
-              description={"Future tasks will be run when this task fails."}
-              label={"Continue on Failure"}
+              description={"งานที่จะเกิดขึ้นในอนาคตจะถูกเรียกใช้งานเมื่องานนี้เกิดข้อผิดพลาด"}
+              label={"การดำเนินการต่อในกรณีที่เกิดข้อผิดพลาด "}
             />
           </div>
           <div css={tw`flex justify-end mt-6`}>
             <Button type={"submit"} disabled={isSubmitting}>
-              {task ? "Save Changes" : "Create Task"}
+              {task ? "บันทึกการเปลื่ยนแปลง" : "สร้างงาน"}
             </Button>
           </div>
         </Form>

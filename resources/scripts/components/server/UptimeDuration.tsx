@@ -1,23 +1,23 @@
 import React from "react";
 
 export default ({ uptime }: { uptime: number }) => {
-  const days = Math.floor(uptime / (24 * 60 * 60));
-  const hours = Math.floor((Math.floor(uptime) / 60 / 60) % 24);
-  const remainder = Math.floor(uptime - hours * 60 * 60);
-  const minutes = Math.floor((remainder / 60) % 60);
-  const seconds = remainder % 60;
+  const วัน = Math.floor(uptime / (24 * 60 * 60));
+  const ชั่วโมง = Math.floor((Math.floor(uptime) / 60 / 60) % 24);
+  const ส่วนที่เหลือ = Math.floor(uptime - ชั่วโมง * 60 * 60);
+  const นาที = Math.floor((ส่วนที่เหลือ / 60) % 60);
+  const วินาที = ส่วนที่เหลือ % 60;
 
-  if (days > 0) {
+  if (วัน > 0) {
     return (
       <>
-        {days}d {hours}h {minutes}m
+        {วัน}วัน {ชั่วโมง}ชั่วโมง {นาที}นาที
       </>
     );
   }
 
   return (
     <>
-      {hours}h {minutes}m {seconds}s
+      {ชั่วโมง}ชั่วโมง {นาที}นาที {วินาที}วินาที
     </>
   );
 };

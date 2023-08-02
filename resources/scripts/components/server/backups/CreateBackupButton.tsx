@@ -28,21 +28,19 @@ const ModalContent = ({ ...props }: RequiredModalProps) => {
     <Modal {...props} showSpinnerOverlay={isSubmitting}>
       <Form>
         <FlashMessageRender byKey={"backups:create"} css={tw`mb-4`} />
-        <h2 css={tw`text-2xl mb-6`}>Create server backup</h2>
+        <h2 css={tw`text-2xl mb-6`}>การสร้างการสำรองข้อมูล</h2>
         <Field
           name={"name"}
-          label={"Backup name"}
-          description={"If provided, the name that should be used to reference this backup."}
+          label={"ชื่อการสำรองข้อมูลนี้"}
+          description={"ถ้าให้ระบุชื่อ, ควรใช้ชื่อนี้เพื่ออ้างอิงถึงการสำรองข้อมูลนี้"}
         />
         <div css={tw`mt-6`}>
           <FormikFieldWrapper
             name={"ignored"}
-            label={"Ignored Files & Directories"}
+            label={"ไฟล์และโฟลเดอร์ที่ถูกละเว้น"}
             description={`
-                            Enter the files or folders to ignore while generating this backup. Leave blank to use
-                            the contents of the .pteroignore file in the root of the server directory if present.
-                            Wildcard matching of files and folders is supported in addition to negating a rule by
-                            prefixing the path with an exclamation point.
+                            
+โปรดระบุไฟล์หรือโฟลเดอร์ที่ต้องการละเว้นในขณะที่กำลังสร้างการสำรองข้อมูลนี้ หากต้องการใช้เนื้อหาของไฟล์ .pteroignore ในโฟลเดอร์รากของเซิร์ฟเวอร์ ให้ปล่อยให้เว้นว่าง ระบบรองรับการใช้ wildcards ในการตรงตามไฟล์และโฟลเดอร์รวมถึงการเปลี่ยนเครื่องหมายของกฎการกำหนดเส้นทางด้วยการเติมเครื่องหมายตกใจ (!) นำหน้าเส้นทาง
                         `}
           >
             <FormikField as={Textarea} name={"ignored"} rows={6} />
@@ -52,8 +50,8 @@ const ModalContent = ({ ...props }: RequiredModalProps) => {
           <div css={tw`mt-6 bg-[#070707] border border-neutral-800 shadow-inner p-4 rounded`}>
             <FormikSwitch
               name={"isLocked"}
-              label={"Locked"}
-              description={"Prevents this backup from being deleted until explicitly unlocked."}
+              label={"ล๊อก"}
+              description={"ป้องกันการลบการสำรองข้อมูลนี้จนกว่าจะปลดล็อกโดยชัดเจน"}
             />
           </div>
         </Can>
@@ -106,7 +104,7 @@ export default () => {
         </Formik>
       )}
       <Button css={tw`w-full sm:w-auto`} onClick={() => setVisible(true)}>
-        Create backup
+        สร้างการสำรองข้อมูล
       </Button>
     </>
   );

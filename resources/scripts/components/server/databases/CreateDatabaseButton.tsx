@@ -18,14 +18,14 @@ interface Values {
 
 const schema = object().shape({
   databaseName: string()
-    .required("A database name must be provided.")
-    .min(3, "Database name must be at least 3 characters.")
-    .max(48, "Database name must not exceed 48 characters.")
+    .required("โปรดระบุชื่อฐานข้อมูล")
+    .min(3, "ชื่อฐานข้อมูลต้องมีอย่างน้อย 3 อักขระ")
+    .max(48, "ชื่อฐานข้อมูลต้องไม่เกิน 48 อักขระ")
     .matches(
       /^[\w\-.]{3,48}$/,
-      "Database name should only contain alphanumeric characters, underscores, dashes, and/or periods.",
+      "ชื่อฐานข้อมูลควรประกอบด้วยตัวอักษรและตัวเลขเท่านั้น พร้อมกับตัวอักขระพิเศษเพียงหลายตัวเท่านั้น",
     ),
-  connectionsFrom: string().matches(/^[\w\-/.%:]+$/, "A valid host address must be provided."),
+  connectionsFrom: string().matches(/^[\w\-/.%:]+$/, "โปรดระบุที่อยู่โฮสต์ที่ถูกต้อง"),
 });
 
 export default () => {
@@ -65,23 +65,23 @@ export default () => {
             }}
           >
             <FlashMessageRender byKey={"database:create"} css={tw`mb-6`} />
-            <h2 css={tw`text-2xl mb-6`}>Create new database</h2>
+            <h2 css={tw`text-2xl mb-6`}>สร้างฐานข้อมูลใหม่</h2>
             <Form css={tw`m-0`}>
               <Field
                 type={"string"}
                 id={"database_name"}
                 name={"databaseName"}
-                label={"Database Name"}
-                description={"A descriptive name for your database instance."}
+                label={"ชื่อฐานข้อมูล"}
+                description={"ชื่อที่อธิบายความหมายสำหรับฐานข้อมูล"}
               />
               <div css={tw`mt-6`}>
                 <Field
                   type={"string"}
                   id={"connections_from"}
                   name={"connectionsFrom"}
-                  label={"Connections From"}
+                  label={"เชื่อมต่อจากไหนได้บ้าง"}
                   description={
-                    "Where connections should be allowed from. Leave blank to allow connections from anywhere."
+                    "ระบุตำแหน่งที่ควรอนุญาตให้เชื่อมต่อจาก หากปล่อยว่างเปล่า จะอนุญาตให้เชื่อมต่อจากทุกที่"
                   }
                 />
               </div>
@@ -92,17 +92,17 @@ export default () => {
                   css={tw`w-full sm:w-auto sm:mr-2`}
                   onClick={() => setVisible(false)}
                 >
-                  Cancel
+                  ยกเลิก
                 </Button>
                 <Button css={tw`w-full mt-4 sm:w-auto sm:mt-0`} type={"submit"}>
-                  Create Database
+                  สร้างฐานข้อมูล
                 </Button>
               </div>
             </Form>
           </Modal>
         )}
       </Formik>
-      <Button onClick={() => setVisible(true)}>New Database</Button>
+      <Button onClick={() => setVisible(true)}>สร้างฐานข้อมูล</Button>
     </>
   );
 };

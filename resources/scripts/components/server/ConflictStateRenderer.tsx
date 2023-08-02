@@ -14,30 +14,30 @@ export default () => {
 
   return status === "installing" || status === "install_failed" || status === "reinstall_failed" ? (
     <ScreenBlock
-      title={"Running Installer"}
+      title={"เซิร์ฟเวอร์กำลังติดตั้ง"}
       image={ServerInstallSvg}
-      message={"Your server should be ready soon, please try again in a few minutes."}
+      message={"เซิร์ฟเวอร์ของท่านจะพร้อมในเร็วๆนี้ โปรดลองอีกทีในภายหลัง"}
     />
   ) : status === "suspended" ? (
     <ScreenBlock
-      title={"Server Suspended"}
+      title={"เซิร์ฟเวอร์ถูกระงับ"}
       image={ServerErrorSvg}
-      message={"This server is suspended and cannot be accessed."}
+      message={"เซิร์ฟเวอร์นี้ถูกระงับและไม่สามารถเข้าถึงได้ โปรดติดต่อผู้ดูแลระบบโดยด่วน"}
     />
   ) : isNodeUnderMaintenance ? (
     <ScreenBlock
-      title={"Node under Maintenance"}
+      title={"Node นี้กำลังปิดปรับปรุง"}
       image={ServerErrorSvg}
-      message={"The node of this server is currently under maintenance."}
+      message={"Node ที่เซิร์ฟเวอร์นี้อยู่กำลังปิดปรับปรุงอยู่ โปรดติดต่อผู้ดูแลระบบสำหรับข้อมูลเพิ่มเติม"}
     />
   ) : (
     <ScreenBlock
-      title={isTransferring ? "Transferring" : "Restoring from Backup"}
+      title={isTransferring ? "กำลังย้ายเซิร์ฟเวอร์ไปยังอีก Node นึง" : "กำลังดึงค่าจาก การสำรองข้อมูล"}
       image={ServerRestoreSvg}
       message={
         isTransferring
-          ? "Your server is being transferred to a new node, please check back later."
-          : "Your server is currently being restored from a backup, please check back in a few minutes."
+          ? "เซิร์ฟเวอร์ของคุณกำลังถูกโอนย้ายไปยังโหนดใหม่ กรุณาตรวจสอบอีกครั้งในภายหลัง"
+          : "เซิร์ฟเวอร์ของคุณกำลังถูกกู้คืนจากการสำรองข้อมูล กรุณาตรวจสอบอีกครู่ในไม่กี่นาที"
       }
     />
   );

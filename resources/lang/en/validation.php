@@ -101,6 +101,6 @@ return [
     // Internal validation logic for Pterodactyl
     'internal' => [
         'variable_value' => ':env variable',
-        'invalid_password' => 'The password provided was invalid for this account.',
+        'invalid_password' => 'รหัสผ่านที่ระบุไม่ถูกต้องสำหรับบัญชีนี้',
     ],
 ];

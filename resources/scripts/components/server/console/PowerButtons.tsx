@@ -42,11 +42,11 @@ export default ({ className }: PowerButtonProps) => {
         open={open}
         hideCloseIcon
         onClose={() => setOpen(false)}
-        title={"Forcibly Stop Process"}
-        confirm={"Continue"}
+        title={"หยุดกระบวนการอย่างกะทันหัน"}
+        confirm={"ยืนยัน"}
         onConfirmed={onButtonClick.bind(this, "kill-confirmed")}
       >
-        Forcibly stopping a server can lead to data corruption.
+        การหยุดเซิร์ฟเวอร์อย่างกะทันหันอาจเกิดการเสียหายของข้อมูล
       </Dialog.Confirm>
       <Can action={"control.start"}>
         <Button className={"flex-1"} disabled={status !== "offline"} onClick={onButtonClick.bind(this, "start")}>

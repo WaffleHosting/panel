@@ -3,16 +3,16 @@ import { createGlobalStyle } from "styled-components/macro";
 
 export default createGlobalStyle`
     * {
-        font-family: "Anuphan", Sans-Serif !important;
+        font-family: "Anuphan", Sans-Serif;
     }
-    
+
     body {
-        ${tw`bg-gradient-to-tr from-[#09090b] to-[#18181b] min-h-screen text-neutral-200`};
+        ${tw`bg-gradient-to-b from-[#09090b] to-[#18181b] min-h-screen text-neutral-200`};
         letter-spacing: 0.015em;
     }
 
     h1, h2, h3, h4, h5, h6 {
-        ${tw`font-medium tracking-normal font-header`};
+        ${tw`font-medium tracking-normal`};
     }
 
     p {

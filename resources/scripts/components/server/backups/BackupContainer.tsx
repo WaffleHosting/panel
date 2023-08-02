@@ -63,7 +63,7 @@ const BackupContainer = () => {
         <div css={tw`mt-6 sm:flex items-center justify-end`}>
           {backupLimit > 0 && backups.backupCount > 0 && (
             <p css={tw`text-sm text-neutral-300 mb-4 sm:mr-6 sm:mb-0`}>
-              {backups.backupCount} of {backupLimit} backups have been created for this server.
+              {backups.backupCount} ใน {backupLimit} ได้สร้างการสำรองข้อมูลสำหรับเซิร์ฟเวอร์นี้แล้ว
             </p>
           )}
           {backupLimit > 0 && backupLimit > backups.backupCount && <CreateBackupButton css={tw`w-full sm:w-auto`} />}

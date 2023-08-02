@@ -12,6 +12,6 @@ return [
     |
     */
 
-    'previous' => '&laquo; Previous',
-    'next' => 'Next &raquo;',
+    'previous' => '&laquo; หน้าที่แล้ว',
+    'next' => 'ต่อไป &raquo;',
 ];

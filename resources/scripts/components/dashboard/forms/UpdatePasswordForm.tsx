@@ -17,11 +17,11 @@ interface Values {
 }
 
 const schema = Yup.object().shape({
-  current: Yup.string().min(1).required("You must provide your current password."),
-  password: Yup.string().min(8).required(),
+  current: Yup.string().min(1, "รหัสผ่านต้องมีความยาวอย่างน้อย 1 ตัวอักษร").required("โปรดใส่รหัสผ่านปัจจุบันของคุณ"),
+  password: Yup.string().min(8, "รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร").required("โปรดใส่รหัสยืนยันของคุณ"),
   confirmPassword: Yup.string().test(
     "password",
-    "Password confirmation does not match the password you entered.",
+    "การยืนยันรหัสผ่านไม่ตรงกับรหัสผ่านที่คุณป้อน",
     function (value) {
       return value === this.parent.password;
     },
@@ -65,15 +65,15 @@ export default () => {
           <React.Fragment>
             <SpinnerOverlay size={"large"} visible={isSubmitting} />
             <Form css={tw`m-0`}>
-              <Field id={"current_password"} type={"password"} name={"current"} label={"Current Password"} />
+              <Field id={"current_password"} type={"password"} name={"current"} label={"รหัสผ่านตอนนี้"} />
               <div css={tw`mt-6`}>
                 <Field
                   id={"new_password"}
                   type={"password"}
                   name={"password"}
-                  label={"New Password"}
+                  label={"รหัสผ่านใหม่สำหรับบัญชีนี้"}
                   description={
-                    "Your new password should be at least 8 characters in length and unique to this website."
+                    "รหัสผ่านใหม่ของคุณควรมีความยาวอย่างน้อย 8 อักขระและไม่เหมือนกับรหัสผ่านใน Panel นี้"
                   }
                 />
               </div>
@@ -82,11 +82,11 @@ export default () => {
                   id={"confirm_new_password"}
                   type={"password"}
                   name={"confirmPassword"}
-                  label={"Confirm New Password"}
+                  label={"ยืนยันรหัสผ่านใหม่"}
                 />
               </div>
               <div css={tw`mt-6`}>
-                <Button disabled={isSubmitting || !isValid}>Update Password</Button>
+                <Button disabled={isSubmitting || !isValid}>เปลื่ยนรหัสผ่าน</Button>
               </div>
             </Form>
           </React.Fragment>

@@ -12,7 +12,7 @@ class NoAutoAllocationSpaceAvailableException extends DisplayException
     public function __construct()
     {
         parent::__construct(
-            'Cannot assign additional allocation: no more space available on node.'
+            'ไม่สามารถกำหนดการจัดการพอร์ตเครือข่ายเติมได้: ไม่มีพื้นที่ว่างในโหนด (node) อีกต่อไป'
         );
     }
 }

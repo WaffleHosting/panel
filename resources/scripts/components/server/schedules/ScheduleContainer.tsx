@@ -66,7 +66,7 @@ export default () => {
             <div css={tw`mt-8 flex justify-end`}>
               <EditScheduleModal visible={visible} onModalDismissed={() => setVisible(false)} />
               <Button type={"button"} onClick={() => setVisible(true)}>
-                สร้างกำหนดการ
+              สร้างการกำหนดเวลา
               </Button>
             </div>
           </Can>

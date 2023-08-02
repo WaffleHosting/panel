@@ -12,7 +12,7 @@ class AutoAllocationNotEnabledException extends DisplayException
     public function __construct()
     {
         parent::__construct(
-            'Server auto-allocation is not enabled for this instance.'
+            'การจัดการพอร์ตทรัพยากรอัตโนมัติของเซิร์ฟเวอร์ไม่ได้เปิดใช้งานสำหรับตัวอย่างนี้'
         );
     }
 }

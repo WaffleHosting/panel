@@ -108,7 +108,7 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
       </StatBlock>
       <StatBlock icon={faMicrochip} title={"การใช้งาน CPU"} color={getBackgroundColor(stats.cpu, limits.cpu)}>
         {status === "offline" ? (
-          <span className={"text-gray-400"}>Offline</span>
+          <span className={"text-gray-400"}>ออฟไลน์</span>
         ) : (
           <Limit limit={textLimits.cpu}>{stats.cpu.toFixed(2)}%</Limit>
         )}
@@ -119,7 +119,7 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
         color={getBackgroundColor(stats.memory / 1024, limits.memory * 1024)}
       >
         {status === "offline" ? (
-          <span className={"text-gray-400"}>Offline</span>
+          <span className={"text-gray-400"}>ออฟไลน์</span>
         ) : (
           <Limit limit={textLimits.memory}>{bytesToString(stats.memory)}</Limit>
         )}
@@ -132,10 +132,10 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
         <Limit limit={textLimits.disk}>{bytesToString(stats.disk)}</Limit>
       </StatBlock>
       <StatBlock icon={faCloudDownloadAlt} title={"Network (สัญญาณเข้า)"}>
-        {status === "offline" ? <span className={"text-gray-400"}>Offline</span> : bytesToString(stats.rx)}
+        {status === "offline" ? <span className={"text-gray-400"}>ออฟไลน์</span> : bytesToString(stats.rx)}
       </StatBlock>
       <StatBlock icon={faCloudUploadAlt} title={"Network (สัญญาณออก)"}>
-        {status === "offline" ? <span className={"text-gray-400"}>Offline</span> : bytesToString(stats.tx)}
+        {status === "offline" ? <span className={"text-gray-400"}>ออฟไลน์</span> : bytesToString(stats.tx)}
       </StatBlock>
     </div>
   );
