@@ -173,7 +173,7 @@ const FileDropdownMenu = ({ file }: { file: FileObject }) => {
         </Can>
         {file.isFile && (
           <Can action={"file.create"}>
-            <Row onClick={doCopy} icon={faCopy} title={"คัคลอกไฟล์"} />
+            <Row onClick={doCopy} icon={faCopy} title={"คัดลอกไฟล์"} />
           </Can>
         )}
         {file.isArchiveType() ? (
@@ -185,7 +185,7 @@ const FileDropdownMenu = ({ file }: { file: FileObject }) => {
             <Row onClick={doArchive} icon={faFileArchive} title={"บีบอัดไฟล์"} />
           </Can>
         )}
-        {file.isFile && <Row onClick={doDownload} icon={faFileDownload} title={"ดาว์ดาวน์โหลดไฟล์"} />}
+        {file.isFile && <Row onClick={doDownload} icon={faFileDownload} title={"ดาวน์โหลดไฟล์"} />}
         <Can action={"file.delete"}>
           <Row onClick={() => setShowConfirmation(true)} icon={faTrashAlt} title={"ลบไฟล์"} $danger />
         </Can>

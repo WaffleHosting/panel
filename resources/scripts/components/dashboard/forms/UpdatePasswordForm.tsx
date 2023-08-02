@@ -19,13 +19,9 @@ interface Values {
 const schema = Yup.object().shape({
   current: Yup.string().min(1, "รหัสผ่านต้องมีความยาวอย่างน้อย 1 ตัวอักษร").required("โปรดใส่รหัสผ่านปัจจุบันของคุณ"),
   password: Yup.string().min(8, "รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร").required("โปรดใส่รหัสยืนยันของคุณ"),
-  confirmPassword: Yup.string().test(
-    "password",
-    "การยืนยันรหัสผ่านไม่ตรงกับรหัสผ่านที่คุณป้อน",
-    function (value) {
-      return value === this.parent.password;
-    },
-  ),
+  confirmPassword: Yup.string().test("password", "การยืนยันรหัสผ่านไม่ตรงกับรหัสผ่านที่คุณป้อน", function (value) {
+    return value === this.parent.password;
+  }),
 });
 
 export default () => {
@@ -72,9 +68,7 @@ export default () => {
                   type={"password"}
                   name={"password"}
                   label={"รหัสผ่านใหม่สำหรับบัญชีนี้"}
-                  description={
-                    "รหัสผ่านใหม่ของคุณควรมีความยาวอย่างน้อย 8 อักขระและไม่เหมือนกับรหัสผ่านใน Panel นี้"
-                  }
+                  description={"รหัสผ่านใหม่ของคุณควรมีความยาวอย่างน้อย 8 อักขระและไม่เหมือนกับรหัสผ่านใน Panel นี้"}
                 />
               </div>
               <div css={tw`mt-6`}>

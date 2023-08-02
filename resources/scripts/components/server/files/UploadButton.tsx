@@ -19,7 +19,7 @@ function isFileOrDirectory(event: DragEvent): boolean {
     return false;
   }
 
-  return event.dataTransfer.types.some((value) => value.toLowerCase() === "ไฟล์");
+  return event.dataTransfer.types.some((value) => value.toLowerCase() === "files");
 }
 
 export default ({ className }: WithClassname) => {
@@ -29,7 +29,7 @@ export default ({ className }: WithClassname) => {
   const timeouts = useSignal<NodeJS.Timeout[]>([]);
 
   const { mutate } = useFileManagerSwr();
-  const { addError, clearAndAddHttpError } = useFlashKey("ไฟล์");
+  const { addError, clearAndAddHttpError } = useFlashKey("files");
 
   const uuid = ServerContext.useStoreState((state) => state.server.data!.uuid);
   const directory = ServerContext.useStoreState((state) => state.files.directory);
@@ -65,7 +65,7 @@ export default ({ className }: WithClassname) => {
     clearAndAddHttpError();
     const list = Array.from(files);
     if (list.some((file) => !file.size || (!file.type && file.size === 4096))) {
-      return addError("ขณะนี้ไม่รองรับการอัปโหลดโฟลเดอร์", "Error");
+      return addError("ยังไม่รองรับการอัพโหลดแบบโฟเดอร์", "Error");
     }
 
     const uploads = list.map((file) => {
@@ -124,9 +124,7 @@ export default ({ className }: WithClassname) => {
                 }
               >
                 <CloudUploadIcon className={"w-10 h-10 flex-shrink-0"} />
-                <p className={"font-header flex-1 text-lg text-neutral-100 text-center"}>
-                ลากและวางไฟล์เพื่ออัปโหลด
-                </p>
+                <p className={"font-header flex-1 text-lg text-neutral-100 text-center"}>ลากและวางไฟล์เพื่ออัพโหลด</p>
               </div>
             </div>
           </ModalMask>

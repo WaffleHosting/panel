@@ -80,9 +80,7 @@ export default () => {
                   id={"connections_from"}
                   name={"connectionsFrom"}
                   label={"เชื่อมต่อจากไหนได้บ้าง"}
-                  description={
-                    "ระบุตำแหน่งที่ควรอนุญาตให้เชื่อมต่อจาก หากปล่อยว่างเปล่า จะอนุญาตให้เชื่อมต่อจากทุกที่"
-                  }
+                  description={"ระบุตำแหน่งที่ควรอนุญาตให้เชื่อมต่อจาก หากปล่อยว่างเปล่า จะอนุญาตให้เชื่อมต่อจากทุกที่"}
                 />
               </div>
               <div css={tw`flex flex-wrap justify-end mt-6`}>
