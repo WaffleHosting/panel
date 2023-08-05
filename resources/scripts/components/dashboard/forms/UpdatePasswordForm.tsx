@@ -80,7 +80,7 @@ export default () => {
                 />
               </div>
               <div css={tw`mt-6`}>
-                <Button disabled={isSubmitting || !isValid}>เปลื่ยนรหัสผ่าน</Button>
+                <Button disabled={isSubmitting || !isValid}>เปลี่ยนรหัสผ่าน</Button>
               </div>
             </Form>
           </React.Fragment>

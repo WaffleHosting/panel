@@ -38,10 +38,10 @@ export default () => {
       )}
 
       <Container css={[tw`lg:grid lg:grid-cols-3 mb-10`, state?.twoFactorRedirect ? tw`mt-4` : tw`mt-10`]}>
-        <ContentBox title={"เปลื่ยนรหัสผ่าน"} showFlashes={"account:password"}>
+        <ContentBox title={"เปลี่ยนรหัสผ่าน"} showFlashes={"account:password"}>
           <UpdatePasswordForm />
         </ContentBox>
-        <ContentBox css={tw`mt-8 sm:mt-0 sm:ml-8`} title={"เปลื่ยนอีเมล"} showFlashes={"account:email"}>
+        <ContentBox css={tw`mt-8 sm:mt-0 sm:ml-8`} title={"เปลี่ยนอีเมล"} showFlashes={"account:email"}>
           <UpdateEmailAddressForm />
         </ContentBox>
         <ContentBox css={tw`md:ml-8 mt-8 md:mt-0`} title={"การยืนยันตัว 2 ชั้น"}>

@@ -5,6 +5,7 @@ import classNames from "classnames";
 import styles from "./style.module.css";
 import useFitText from "use-fit-text";
 import CopyOnClick from "@/components/elements/CopyOnClick";
+import tw from "twin.macro"
 
 interface StatBlockProps {
   title: string;
@@ -15,10 +16,7 @@ interface StatBlockProps {
   className?: string;
 }
 
-export default ({ title, copyOnClick, icon, color, className, children }: StatBlockProps) => {
-  const { fontSize, ref } = useFitText({ minFontSize: 6, maxFontSize: 500 });
-
-  return (
+export default ({ title, copyOnClick, icon, color, className, children }: StatBlockProps) => (
     <CopyOnClick text={copyOnClick}>
       <div className={classNames(styles.stat_block, "bg-[#060606]", className)}>
         <div className={classNames(styles.status_bar, color || "bg-[#060606]")} />
@@ -31,13 +29,12 @@ export default ({ title, copyOnClick, icon, color, className, children }: StatBl
             })}
           />
         </div>
-        <div className={"flex flex-col justify-center overflow-hidden w-full"}>
-          <p className={"leading-tight text-xs md:text-sm text-white"}>{title}</p>
-          <div ref={ref} className={"h-[1.75rem] w-full font-semibold text-white truncate"} style={{ fontSize }}>
+        <div css={tw`flex flex-col justify-center overflow-hidden w-full`}>
+          <p css={tw`leading-tight text-xs md:text-sm text-white`}>{title}</p>
+          <div css={tw`h-[1.75rem] w-full font-semibold text-white truncate text-sm`}>
             {children}
           </div>
         </div>
       </div>
     </CopyOnClick>
   );
-};

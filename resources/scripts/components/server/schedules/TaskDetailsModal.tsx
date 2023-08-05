@@ -185,7 +185,7 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
           </div>
           <div css={tw`flex justify-end mt-6`}>
             <Button type={"submit"} disabled={isSubmitting}>
-              {task ? "บันทึกการเปลื่ยนแปลง" : "สร้างงาน"}
+              {task ? "บันทึกการเปลี่ยนแปลง" : "สร้างงาน"}
             </Button>
           </div>
         </Form>

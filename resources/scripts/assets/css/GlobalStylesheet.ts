@@ -67,8 +67,4 @@ export default createGlobalStyle`
     ::-webkit-scrollbar-corner {
         background: transparent;
     }
-    
-    .gradient-primary {
-        
-    }
 `;

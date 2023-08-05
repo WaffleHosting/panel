@@ -33,7 +33,7 @@ export default () => {
         addFlash({
           type: "success",
           key: "account:email",
-          message: "อีเมลหลักของคุณถูกเปลื่ยนแล้วสำหรับเว็บ Panel นี้",
+          message: "อีเมลหลักของคุณถูกเปลี่ยนแล้วสำหรับเว็บ Panel นี้",
         }),
       )
       .catch((error) =>
@@ -61,7 +61,7 @@ export default () => {
               <Field id={"confirm_password"} type={"password"} name={"password"} label={"ยืนยันรหัสผ่าน"} />
             </div>
             <div css={tw`mt-6`}>
-              <Button disabled={isSubmitting || !isValid}>เปลื่ยนอีเมล</Button>
+              <Button disabled={isSubmitting || !isValid}>เปลี่ยนอีเมล</Button>
             </div>
           </Form>
         </React.Fragment>

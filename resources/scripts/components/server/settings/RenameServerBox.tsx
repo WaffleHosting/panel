@@ -24,7 +24,7 @@ const RenameServerBox = () => {
   const { isSubmitting } = useFormikContext<Values>();
 
   return (
-    <TitledGreyBox title={"เปลื่ยนข้อมูลเซิร์ฟเวอร์"} css={tw`relative`}>
+    <TitledGreyBox title={"เปลี่ยนข้อมูลเซิร์ฟเวอร์"} css={tw`relative`}>
       <SpinnerOverlay visible={isSubmitting} />
       <Form css={tw`mb-0`}>
         <Field id={"name"} name={"name"} label={"ชื่อเซิร์ฟเวอร์"} type={"text"} />

@@ -4,7 +4,7 @@
     "version": "PTDL_v2",
     "update_url": null
   },
-  "exported_at": "2022-06-23T23:05:44+02:00",
+  "exported_at": "2023-08-05T16:22:34+07:00",
   "name": "Nginx",
   "author": "nest@wafflestudio.xyz",
   "description": "An Nginx egg to host any Website",
@@ -22,7 +22,7 @@
   },
   "scripts": {
     "installation": {
-      "script": "#!/bin/ash\r\n\r\ncd /mnt/server\r\n\r\napk --update add git\r\n\r\ngit clone https://github.com/finnie2006/ptero-nginx ./temp\r\n\r\ncp -r ./temp/nginx /mnt/server/\r\ncp -r ./temp/php-fpm /mnt/server/\r\ncp -r ./temp/webroot /mnt/server/\r\ncp ./temp/start.sh /mnt/server/\r\nchmod +x /mnt/server/start.sh\r\nrm -rf ./temp\r\n\r\n",
+      "script": "#!/bin/ash\r\n\r\ncd /mnt/server\r\nmkdir logs/\r\ntouch logs/error.log\r\napk --update add git\r\n\r\ngit clone https://github.com/finnie2006/ptero-nginx ./temp\r\n\r\ncp -r ./temp/nginx /mnt/server/\r\ncp -r ./temp/php-fpm /mnt/server/\r\ncp -r ./temp/webroot /mnt/server/\r\ncp ./temp/start.sh /mnt/server/\r\nchmod +x /mnt/server/start.sh\r\nrm -rf ./temp",
       "container": "alpine:latest",
       "entrypoint": "ash"
     }
