@@ -7,7 +7,7 @@
 
 # Pterodactyl Panel
 
-Pterodactyl® is a free, open-source game server management panel built with PHP, React, and Go. Designed with security
+Pterodactyl® is a free, open-source game server management panel built with PHP, React, and Go. Designed with security 
 in mind, Pterodactyl runs all game servers in isolated Docker containers while exposing a beautiful and intuitive
 UI to end users.
 
@@ -17,28 +17,27 @@ Stop settling for less. Make game servers a first class citizen on your platform
 
 ## Documentation
 
-- [Panel Documentation](https://pterodactyl.io/panel/1.0/getting_started.html)
-- [Wings Documentation](https://pterodactyl.io/wings/1.0/installing.html)
-- [Community Guides](https://pterodactyl.io/community/about.html)
-- Or, get additional help [via Discord](https://discord.gg/pterodactyl)
+* [Panel Documentation](https://pterodactyl.io/panel/1.0/getting_started.html)
+* [Wings Documentation](https://pterodactyl.io/wings/1.0/installing.html)
+* [Community Guides](https://pterodactyl.io/community/about.html)
+* Or, get additional help [via Discord](https://discord.gg/pterodactyl)
 
 ## Sponsors
 
-I would like to extend my sincere thanks to the following sponsors for helping fund Pterodactyl's developement.
+I would like to extend my sincere thanks to the following sponsors for helping fund Pterodactyl's development.
 [Interested in becoming a sponsor?](https://github.com/sponsors/matthewpi)
 
-| Company                                                   | About                                                                                                                                                                                                                           |
-| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| [**WISP**](https://wisp.gg)                               | Extra features.                                                                                                                                                                                                                 |
-| [**RocketNode**](https://rocketnode.com/)                 | Innovative game server hosting combined with a straightforward control panel, affordable prices, and Rocket-Fast support.                                                                                                       |
-| [**Aussie Server Hosts**](https://aussieserverhosts.com/) | No frills Australian Owned and operated High Performance Server hosting for some of the most demanding games serving Australia and New Zealand.                                                                                 |
-| [**BisectHosting**](https://www.bisecthosting.com/)       | BisectHosting provides Minecraft, Valheim and other server hosting services with the highest reliability and lightning fast support since 2012.                                                                                 |
-| [**MineStrator**](https://minestrator.com/)               | Looking for the most highend French hosting company for your minecraft server? More than 24,000 members on our discord trust us. Give us a try!                                                                                 |
-| [**Skynode**](https://www.skynode.pro/)                   | Skynode provides blazing fast game servers along with a top-notch user experience. Whatever our clients are looking for, we're able to provide it!                                                                              |
-| [**VibeGAMES**](https://vibegames.net/)                   | VibeGAMES is a game server provider that specializes in DDOS protection for the games we offer. We have multiple locations in the US, Brazil, France, Germany, Singapore, Australia and South Africa.                           |
-| [**Pterodactyl Market**](https://pterodactylmarket.com/)  | Pterodactyl Market is a one-and-stop shop for Pterodactyl. In our market, you can find Add-ons, Themes, Eggs, and more for Pterodactyl.                                                                                         |
-| [**UltraServers**](https://ultraservers.com/)             | Deploy premium games hosting with the click of a button. Manage and swap games with ease and let us take care of the rest. We currently support Minecraft, Rust, ARK, 7 Days to Die, Garys MOD, CS:GO, Satisfactory and others. |
-| [**Realms Hosting**](https://realmshosting.com/)          | Want to build your Gaming Empire? Use Realms Hosting today to kick start your game server hosting with outstanding DDOS Protection, 24/7 Support, Cheap Prices and a Custom Control Panel.                                      |     |
+| Company                                                               | About                                                                                                                                                                                                 |
+|-----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [**WISP**](https://wisp.gg)                                           | Extra features.                                                                                                                                                                                       |
+| [**Aussie Server Hosts**](https://aussieserverhosts.com/)             | No frills Australian Owned and operated High Performance Server hosting for some of the most demanding games serving Australia and New Zealand.                                                       |
+| [**WemX**](https://wemx.net/)                                         | WemX helps automate your hosting company or SaaS business by automating billing, user management, authentication, and much more.                                                                      |
+| [**BisectHosting**](https://www.bisecthosting.com/)                   | BisectHosting provides Minecraft, Valheim and other server hosting services with the highest reliability and lightning fast support since 2012.                                                       |
+| [**MineStrator**](https://minestrator.com/)                           | Looking for the most highend French hosting company for your minecraft server? More than 24,000 members on our discord trust us. Give us a try!                                                       |
+| [**VibeGAMES**](https://vibegames.net/)                               | VibeGAMES is a game server provider that specializes in DDOS protection for the games we offer. We have multiple locations in the US, Brazil, France, Germany, Singapore, Australia and South Africa. |
+| [**DutchIS**](https://dutchis.net?ref=pterodactyl)                    | DutchIS provides instant infrastructure such as pay per use VPS hosting. Start your game hosting journey on DutchIS.                                                                                  |
+| [**Skoali**](https://skoali.com/)                                     | Skoali is a French company that hosts game servers and other types of services (VPS, WEB, Dedicated servers, ...). We also have a free plan for Minecraft and Garry's Mod.                            |
+| [**Rabbit Computing**](https://www.rabbitcomputing.com/link.php?id=5) | Rabbit Computing offers powerful VPS servers, highly available game hosting, and fully unlimited web hosting. Use code README for 20% off your first three months!                                    |
 
 ### Supported Games
 
@@ -47,27 +46,27 @@ you the power to run game servers without bloating machines with a host of addit
 
 Some of our core supported games include:
 
-- Minecraft — including Paper, Sponge, Bungeecord, Waterfall, and more
-- Rust
-- Terraria
-- Teamspeak
-- Mumble
-- Team Fortress 2
-- Counter Strike: Global Offensive
-- Garry's Mod
-- ARK: Survival Evolved
+* Minecraft — including Paper, Sponge, Bungeecord, Waterfall, and more
+* Rust
+* Terraria
+* Teamspeak
+* Mumble
+* Team Fortress 2
+* Counter Strike: Global Offensive
+* Garry's Mod
+* ARK: Survival Evolved
 
 In addition to our standard nest of supported games, our community is constantly pushing the limits of this software
 and there are plenty more games available provided by the community. Some of these games include:
 
-- Factorio
-- San Andreas: MP
-- Pocketmine MP
-- Squad
-- Xonotic
-- Starmade
-- Discord ATLBot, and most other Node.js/Python discord bots
-- [and many more...](https://github.com/parkervcp/eggs)
+* Factorio
+* San Andreas: MP
+* Pocketmine MP
+* Squad
+* Xonotic
+* Starmade
+* Discord ATLBot, and most other Node.js/Python discord bots
+* [and many more...](https://github.com/parkervcp/eggs)
 
 ## License
 

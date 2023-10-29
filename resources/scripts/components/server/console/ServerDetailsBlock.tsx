@@ -103,7 +103,7 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
         ) : stats.uptime > 0 ? (
           <UptimeDuration uptime={stats.uptime / 1000} />
         ) : (
-          capitalize(status)
+          capitalize(status === 'offline' ? 'ออฟไลน์' : status === 'starting' ? 'กำลังเริ่ม' : status === 'stopping' ? 'กำลังหยุด' : status)
         )}
       </StatBlock>
       <StatBlock icon={faMicrochip} title={"การใช้งาน CPU"} color={getBackgroundColor(stats.cpu, limits.cpu)}>

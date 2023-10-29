@@ -100,110 +100,110 @@ class Permission extends Model
      */
     protected static array $permissions = [
         'websocket' => [
-            'description' => 'ให้ผู้ใช้เชื่อมต่อกับ websocket ของเซิร์ฟเวอร์ ทำให้พวกเขาสามารถดูผลลัพธ์ในคอนโซลและสถิติของเซิร์ฟเวอร์ในเวลาจริงได้',
+            'description' => 'Allows the user to connect to the server websocket, giving them access to view console output and realtime server stats.',
             'keys' => [
-                'connect' => 'ให้ผู้ใช้เชื่อมต่อกับตัวอย่าง websocket ของเซิร์ฟเวอร์เพื่อรับสตรีมคอนโซล',
+                'connect' => 'Allows a user to connect to the websocket instance for a server to stream the console.',
             ],
         ],
 
-        'ควบคุม' => [
-            'description' => 'สิทธิ์ที่ควบคุมความสามารถของผู้ใช้ในการควบคุมสถานะเครื่องและส่งคำสั่งของเซิร์ฟเวอร์',
+        'control' => [
+            'description' => 'Permissions that control a user\'s ability to control the power state of a server, or send commands.',
             'keys' => [
-                'คอนโซล' => 'การให้ผู้ใช้สามารถส่งคำสั่งไปยังเซิร์ฟเวอร์ผ่านคอนโซล.',
-                'เริ่ม' => 'การให้ผู้ใช้สามารถเริ่มเซิร์ฟเวอร์หากมีการหยุดทำงาน',
-                'ปิด' => 'การให้ผู้ใช้สามารถหยุดทำงานเซิร์ฟเวอร์หากมันกำลังทำงานอยู่',
-                'รีสตาร์ท' => 'การให้ผู้ใช้ทำการรีสตาร์ทเซิร์ฟเวอร์คือการให้สิทธิ์ในการทำการรีสตาร์ทเซิร์ฟเวอร์โดยไม่ให้เซิร์ฟเวอร์หยุดทำงานอย่างสมบูรณ์ ผู้ใช้สามารถใช้คำสั่งหรือเครื่องมือที่ให้บริการในการรีสตาร์ทเซิร์ฟเวอร์เพื่อเริ่มเซิร์ฟเวอร์ใหม่หากเซิร์ฟเวอร์อยู่ในสถานะออฟไลน์',
+                'console' => 'Allows a user to send commands to the server instance via the console.',
+                'start' => 'Allows a user to start the server if it is stopped.',
+                'stop' => 'Allows a user to stop a server if it is running.',
+                'restart' => 'Allows a user to perform a server restart. This allows them to start the server if it is offline, but not put the server in a completely stopped state.',
             ],
         ],
 
-        'ผู้ใช้' => [
-            'description' => 'สิทธิ์ที่อนุญาตให้ผู้ใช้จัดการผู้ใช้ย่อยอื่นบนเซิร์ฟเวอร์คือ 1.จัดการผู้ใช้ย่อย 2.ดูข้อมูลผู้ใช้ย่อย 3.แก้ไขผู้ใช้ย่อย (ยกเว้นตนเอง) 4.การกำหนดสิทธิ์เฉพาะตนเอง',
+        'user' => [
+            'description' => 'Permissions that allow a user to manage other subusers on a server. They will never be able to edit their own account, or assign permissions they do not have themselves.',
             'keys' => [
-                'สร้าง' => 'สิทธิ์นี้อนุญาตให้ผู้ใช้สามารถสร้างผู้ใช้ย่อยใหม่สำหรับเซิร์ฟเวอร์',
-                'อ่าน' => 'สิทธิ์นี้อนุญาตให้ผู้ใช้ดูรายการผู้ใช้ย่อยและสิทธิ์ของพวกเขาสำหรับเซิร์ฟเวอร์',
-                'ปรับเปลี่ยน' => 'สิทธิ์นี้อนุญาตให้ผู้ใช้แก้ไขและปรับปรุงข้อมูลของผู้ใช้ย่อยอื่นบนเซิร์ฟเวอร์',
-                'ลบ' => 'สิทธิ์นี้อนุญาตให้ผู้ใช้ลบผู้ใช้ย่อยออกจากเซิร์ฟเวอร์',
+                'create' => 'Allows a user to create new subusers for the server.',
+                'read' => 'Allows the user to view subusers and their permissions for the server.',
+                'update' => 'Allows a user to modify other subusers.',
+                'delete' => 'Allows a user to delete a subuser from the server.',
             ],
         ],
 
-        'ไฟล์' => [
-            'description' => 'สิทธิ์ที่ควบคุมความสามารถของผู้ใช้ในการปรับเปลี่ยนระบบไฟล์สำหรับเซิร์ฟเวอร์นี้',
+        'file' => [
+            'description' => 'Permissions that control a user\'s ability to modify the filesystem for this server.',
             'keys' => [
-                'สร้าง' => 'อนุญาตให้ผู้ใช้สร้างไฟล์และโฟลเดอร์เพิ่มเติมผ่านแผงควบคุมหรืออัปโหลดโดยตรง',
-                'อ่าน' => 'อนุญาตให้ผู้ใช้ดูเนื้อหาของไดเร็กทอรี แต่ไม่สามารถดูเนื้อหาหรือดาวน์โหลดไฟล์ได้',
-                'อ่านเนื้อหา' => 'อนุญาตให้ผู้ใช้ดูเนื้อหาของไฟล์ที่กำหนด สิ่งนี้จะช่วยให้ผู้ใช้สามารถดาวน์โหลดไฟล์ได้',
-                'อัพเดท' => 'อนุญาตให้ผู้ใช้อัปเดตเนื้อหาของไฟล์หรือไดเร็กทอรีที่มีอยู่',
-                'ลบ' => 'อนุญาตให้ผู้ใช้ลบไฟล์หรือแฟ้มจัดเก็บไฟล์',
-                'อัดไฟล์' => 'อนุญาตให้ผู้ใช้เก็บถาวรเนื้อหาของแฟ้มจัดเก็บไฟล์ รวมทั้งขยายขนาดไฟล์เก็บถาวรที่มีอยู่ในระบบ',
-                'sftp' => 'อนุญาตให้ผู้ใช้เชื่อมต่อกับ SFTP และจัดการไฟล์เซิร์ฟเวอร์โดยใช้สิทธิ์ไฟล์อื่น ๆ ที่กำหนด',
+                'create' => 'Allows a user to create additional files and folders via the Panel or direct upload.',
+                'read' => 'Allows a user to view the contents of a directory, but not view the contents of or download files.',
+                'read-content' => 'Allows a user to view the contents of a given file. This will also allow the user to download files.',
+                'update' => 'Allows a user to update the contents of an existing file or directory.',
+                'delete' => 'Allows a user to delete files or directories.',
+                'archive' => 'Allows a user to archive the contents of a directory as well as decompress existing archives on the system.',
+                'sftp' => 'Allows a user to connect to SFTP and manage server files using the other assigned file permissions.',
             ],
         ],
 
-        'สำรองข้อมูล' => [
-            'description' => 'สิทธิ์ที่ควบคุมความสามารถของผู้ใช้ในการสร้างและจัดการเซิร์ฟเวอร์สำรอง สร้างสิทธิ์ที่ควบคุมความสามารถของผู้ใช้ในการสร้างและจัดการเซิร์ฟเวอร์สำรอง',
+        'backup' => [
+            'description' => 'Permissions that control a user\'s ability to generate and manage server backups.',
             'keys' => [
-                'สร้าง' => 'อนุญาตให้ผู้ใช้สร้างข้อมูลสำรองใหม่สำหรับบริการนี้',
-                'อ่าน' => 'อนุญาตให้ผู้ใช้ดูข้อมูลสำรองทั้งหมดที่มีอยู่สำหรับเซิร์ฟเวอร์นี้',
-                'ลบ' => 'อนุญาตให้ผู้ใช้ลบข้อมูลสำรองออกจากระบบ',
-                'ดาวน์โหลด' => 'อนุญาตให้ผู้ใช้ดาวน์โหลดข้อมูลสำรองสำหรับเซิร์ฟเวอร์ อันตราย: สิ่งนี้ทำให้ผู้ใช้สามารถเข้าถึงไฟล์ทั้งหมดสำหรับเซิร์ฟเวอร์ในการสำรองข้อมูล',
-                'กู้คืน' => 'อนุญาตให้ผู้ใช้กู้คืนข้อมูลสำรองสำหรับเซิร์ฟเวอร์ อันตราย: สิ่งนี้ทำให้ผู้ใช้สามารถลบไฟล์เซิร์ฟเวอร์ทั้งหมดในกระบวนการ',
+                'create' => 'Allows a user to create new backups for this server.',
+                'read' => 'Allows a user to view all backups that exist for this server.',
+                'delete' => 'Allows a user to remove backups from the system.',
+                'download' => 'Allows a user to download a backup for the server. Danger: this allows a user to access all files for the server in the backup.',
+                'restore' => 'Allows a user to restore a backup for the server. Danger: this allows the user to delete all of the server files in the process.',
             ],
         ],
 
         // Controls permissions for editing or viewing a server's allocations.
-        'จัดการพอร์ต' => [
-            'description' => 'สิทธิ์ที่ควบคุมความสามารถของผู้ใช้ในการแก้ไขการจัดการพอร์ตสำหรับเซิร์ฟเวอร์นี้',
+        'allocation' => [
+            'description' => 'Permissions that control a user\'s ability to modify the port allocations for this server.',
             'keys' => [
-                'อ่าน' => 'อนุญาตให้ผู้ใช้ดูการจัดการพอร์ตทั้งหมดที่กำหนดให้กับเซิร์ฟเวอร์นี้ในปัจจุบัน ผู้ใช้ที่มีสิทธิ์เข้าถึงเซิร์ฟเวอร์นี้ในระดับใดก็ได้สามารถดูการจัดการพอร์ตหลักได้ตลอดเวลา',
-                'สร้าง' => 'อนุญาตให้ผู้ใช้กำหนดการจัดการพอร์ตเพิ่มเติมให้กับเซิร์ฟเวอร์',
-                'อัพเดท' => 'อนุญาตให้ผู้ใช้เปลี่ยนการจัดการพอร์ตเซิร์ฟเวอร์หลักและแนบหมายเหตุกับการจัดการพอร์ตแต่ละครั้ง',
-                'ลบ' => 'อนุญาตให้ผู้ใช้ลบการจัดการพอร์ตออกจากเซิร์ฟเวอร์',
+                'read' => 'Allows a user to view all allocations currently assigned to this server. Users with any level of access to this server can always view the primary allocation.',
+                'create' => 'Allows a user to assign additional allocations to the server.',
+                'update' => 'Allows a user to change the primary server allocation and attach notes to each allocation.',
+                'delete' => 'Allows a user to delete an allocation from the server.',
             ],
         ],
 
         // Controls permissions for editing or viewing a server's startup parameters.
-        'คำสั่งเริ่ม' => [
-            'description' => 'สิทธิ์ที่ควบคุมความสามารถของผู้ใช้ในการดูพารามิเตอร์เริ่มต้นของเซิร์ฟเวอร์นี้',
+        'startup' => [
+            'description' => 'Permissions that control a user\'s ability to view this server\'s startup parameters.',
             'keys' => [
-                'อ่าน' => 'อนุญาตให้ผู้ใช้ดูคำสั่งเริ่มต้นสำหรับเซิร์ฟเวอร์',
-                'อัพเดท' => 'อนุญาตให้ผู้ใช้แก้ไขคำสั่งเริ่มต้นสำหรับเซิร์ฟเวอร์',
-                'docker-image' => 'อนุญาตให้ผู้ใช้แก้ไข Image Docker ที่ใช้เมื่อเรียกใช้เซิร์ฟเวอร์',
+                'read' => 'Allows a user to view the startup variables for a server.',
+                'update' => 'Allows a user to modify the startup variables for the server.',
+                'docker-image' => 'Allows a user to modify the Docker image used when running the server.',
             ],
         ],
 
-        'ฐานข้อมูล' => [
-            'description' => 'สิทธ์ที่จะควบคุมความสามารถของผู้ใช้ในการจัดการฐานข้อมูลในเซิร์ฟเวอร์นี้',
+        'database' => [
+            'description' => 'Permissions that control a user\'s access to the database management for this server.',
             'keys' => [
-                'สร้าง' => 'อนุญาตให้ผู้ใช้สร้างฐานข้อมูลอันใหม่ในเซิร์ฟเวอร์นี้',
-                'อ่าน' => 'อนุญาตให้ผู้ใช้อ่านฐานข้อมูลที่อยู่ในเซิร์ฟเวอร์นี้',
-                'อัพเดท' => 'อนุญาตให้ผู้ใช้เปลี่ยนรหัสผ่านบนเครื่องฐานข้อมูล หากผู้ใช้ไม่มีสิทธิ์ ดูรหัสผ่าน ผู้ใช้จะไม่เห็นรหัสผ่านที่อัปเดต',
-                'ลบ' => 'อนุญาตให้ผู้ใช้ลบเครื่องฐานข้อมูลออกจากเซิร์ฟเวอร์นี้',
-                'ดูรหัสผ่าน' => 'อนุญาตให้ผู้ใช้ดูรหัสผ่านที่เชื่อมโยงกับเครื่องฐานข้อมูลสำหรับเซิร์ฟเวอร์นี้',
+                'create' => 'Allows a user to create a new database for this server.',
+                'read' => 'Allows a user to view the database associated with this server.',
+                'update' => 'Allows a user to rotate the password on a database instance. If the user does not have the view_password permission they will not see the updated password.',
+                'delete' => 'Allows a user to remove a database instance from this server.',
+                'view_password' => 'Allows a user to view the password associated with a database instance for this server.',
             ],
         ],
 
-        'ตารางเวลา' => [
-            'description' => 'สิทธ์ที่จะควบคุมความสามารถของผู้ใช้ในการควบคุมตารางเวลาในเซิร์ฟเวอร์นี้',
+        'schedule' => [
+            'description' => 'Permissions that control a user\'s access to the schedule management for this server.',
             'keys' => [
-                'สร้าง' => 'อนุญาตให้ผู้ใช้สร้างกำหนดการใหม่สำหรับเซิร์ฟเวอร์นี้', // task.create-schedule
-                'อ่าน' => 'อนุญาตให้ผู้ใช้ดูกำหนดการและงานที่เกี่ยวข้องสำหรับเซิร์ฟเวอร์นี้', // task.view-schedule, task.list-schedules
-                'อัพเดท' => 'อนุญาตให้ผู้ใช้อัปเดตกำหนดการและกำหนดเวลางานสำหรับเซิร์ฟเวอร์นี้', // task.edit-schedule, task.queue-schedule, task.toggle-schedule
-                'ลบ' => 'อนุญาตให้ผู้ใช้ลบกำหนดการสำหรับเซิร์ฟเวอร์นี้', // task.delete-schedule
+                'create' => 'Allows a user to create new schedules for this server.', // task.create-schedule
+                'read' => 'Allows a user to view schedules and the tasks associated with them for this server.', // task.view-schedule, task.list-schedules
+                'update' => 'Allows a user to update schedules and schedule tasks for this server.', // task.edit-schedule, task.queue-schedule, task.toggle-schedule
+                'delete' => 'Allows a user to delete schedules for this server.', // task.delete-schedule
             ],
         ],
 
-        'ตั้งค่า' => [
-            'description' => 'สิทธ์ที่จะควบคุมความสามารถของผู้ใช้ในการจัดการการตั้งค่าในเซิร์ฟเวอร์นี้',
+        'settings' => [
+            'description' => 'Permissions that control a user\'s access to the settings for this server.',
             'keys' => [
-                'เปลี่ยนชื่อ' => 'อนุญาตให้ผู้ใช้เปลี่ยนชื่อเซิร์ฟเวอร์นี้และเปลี่ยนคำอธิบายของเซิร์ฟเวอร์',
-                'ติดตั้งใหม่' => 'อนุญาตให้ผู้ใช้ทริกเกอร์การติดตั้งเซิร์ฟเวอร์นี้ใหม่',
+                'rename' => 'Allows a user to rename this server and change the description of it.',
+                'reinstall' => 'Allows a user to trigger a reinstall of this server.',
             ],
         ],
 
-        'บันทึกกิจกรรม' => [
-            'description' => 'สิทธ์ที่จะควบคุมความสามารถของผู้ใช้ในการชมการเคลื่อนไหวในเซิร์ฟเวอร์นี้',
+        'activity' => [
+            'description' => 'Permissions that control a user\'s access to the server activity logs.',
             'keys' => [
-                'อ่าน' => 'อนุญาตให้ผู้ใช้ดูบันทึกกิจกรรมสำหรับเซิร์ฟเวอร์',
+                'read' => 'Allows a user to view the activity logs for the server.',
             ],
         ],
     ];

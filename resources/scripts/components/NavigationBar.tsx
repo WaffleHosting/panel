@@ -61,17 +61,10 @@ export default () => {
       <div css={tw`mx-auto w-full flex items-center h-[3.5rem] max-w-[1200px]`}>
         <div id={"logo"} css={tw`flex-1`}>
           <Link
-            to={"/"}
-            css={tw`no-underline transition-colors duration-150 mx-4`}
+            to="/"
+            className="px-4 font-header text-2xl text-neutral-200 no-underline transition-colors duration-150 hover:text-neutral-100"
           >
-            <img
-              src="/assets/svgs/logo_long.svg"
-              css={tw`w-[158px] h-[158px] hidden md:block`}
-            />
-            <img
-              src="/assets/svgs/logo.svg"
-              css={tw`w-[158px] h-[158px] block md:hidden`}
-            />
+            {name}
           </Link>
         </div>
         <RightNavigation css={tw`flex h-full items-center justify-center`}>
